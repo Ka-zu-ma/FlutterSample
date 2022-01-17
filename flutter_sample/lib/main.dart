@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: "Flutter Demo Home Page",)
+      home: MyHomePage(title: 'Flutter Demo Home Page',)
     );
   }
 }
@@ -52,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Text("Flutterのサンプル!!")
+        title: Text('Flutterのサンプル!!')
       ),
       body: Center(
         child: ElevatedButton(

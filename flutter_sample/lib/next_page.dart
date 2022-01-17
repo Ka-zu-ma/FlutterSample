@@ -10,7 +10,7 @@ class NextPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Text("次の画面"),
+          title: Text('次の画面'),
       ),
       body: Container(
         height: double.infinity,
@@ -25,7 +25,7 @@ class NextPage extends StatelessWidget {
                     Navigator.pop(context, '前画面に戻ってきたよ');
                   },
                   child: Text(
-                    "戻る",
+                    '戻る',
                   ),
                 )
             ),
