@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sample/next_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: "Flutter Demo Home Page",)
     );
   }
 }
@@ -49,25 +50,22 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Text("Futterのサンプル!!"),
-        actions: <Widget>[
-          Icon(Icons.add),
-          Icon(Icons.share),
-        ],
+        title: Text("Futterのサンプル!!")
       ),
-      body: Container(
-        height: double.infinity,
-        color: Colors.red,
-        child: Padding(
-          padding: const EdgeInsets.all(8),
-          child: Row(
-            children: <Widget>[
-              Text('Futter'),
-              Text('Futter'),
-              Text('Futter'),
-            ],
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            // ここに押したら反応する
+            // 画面遷移のコード
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => NextPage(),),
+            );
+          },
+          child: Text(
+            "次へ",
           ),
-        ),
+        )
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
