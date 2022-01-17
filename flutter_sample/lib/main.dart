@@ -38,6 +38,8 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  String text = '次へ';
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -54,17 +56,20 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: ElevatedButton(
-          onPressed: () {
+          child: Text(
+              text
+          ),
+          onPressed: () async {
             // ここに押したら反応する
             // 画面遷移のコード
-            Navigator.push(
+            final result = await Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => NextPage(),),
+              MaterialPageRoute(builder: (context) => NextPage('次画面に遷移したよ。'),),
             );
+            text = result;
+            print(result);
           },
-          child: Text(
-            "次へ",
-          ),
+
         )
       ),
       floatingActionButton: FloatingActionButton(
