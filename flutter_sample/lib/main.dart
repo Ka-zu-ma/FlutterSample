@@ -57,39 +57,30 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Container(
         width: double.infinity,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Icon(
-              Icons.directions_car,
-              size: 200,
-            ),
-            ElevatedButton(
+            Container(
+              width: double.infinity,
               child: Text(
-                  text
+                'Flutter1さん',
+                textAlign: TextAlign.center,
               ),
-              onPressed: () async {
-                // ここに押したら反応する
-                // 画面遷移のコード
-                final result = await Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => NextPage('次画面に遷移したよ。'),),
-                );
-                setState(() {
-                  text = result;
-                });
-                print(result);
-              },
+            ),
+            DefaultTextStyle(style: TextStyle(
+              fontSize: 20,
+              color: Colors.purple,
+            ), child: Column(
+              children: [
+                Text('Flutter2さん'),
+                Text('Flutter2さん'),
+                Text('Flutter2さん'),
+              ],
+            ),
 
             ),
+            Text('Flutter2さん')
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
