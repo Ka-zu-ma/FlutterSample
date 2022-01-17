@@ -66,7 +66,9 @@ class _MyHomePageState extends State<MyHomePage> {
               context,
               MaterialPageRoute(builder: (context) => NextPage('次画面に遷移したよ。'),),
             );
-            text = result;
+            setState(() {
+              text = result;
+            });
             print(result);
           },
 
