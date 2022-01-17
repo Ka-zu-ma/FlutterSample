@@ -54,25 +54,36 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text('Flutterのサンプル!!')
       ),
-      body: Center(
-        child: ElevatedButton(
-          child: Text(
-              text
-          ),
-          onPressed: () async {
-            // ここに押したら反応する
-            // 画面遷移のコード
-            final result = await Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => NextPage('次画面に遷移したよ。'),),
-            );
-            setState(() {
-              text = result;
-            });
-            print(result);
-          },
+      body: Container(
+        width: double.infinity,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.directions_car,
+              size: 200,
+            ),
+            ElevatedButton(
+              child: Text(
+                  text
+              ),
+              onPressed: () async {
+                // ここに押したら反応する
+                // 画面遷移のコード
+                final result = await Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => NextPage('次画面に遷移したよ。'),),
+                );
+                setState(() {
+                  text = result;
+                });
+                print(result);
+              },
 
-        )
+            ),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
