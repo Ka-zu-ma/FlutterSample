@@ -40,6 +40,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   String text = '次へ';
 
+  final myFocusNode = FocusNode();
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -58,26 +60,20 @@ class _MyHomePageState extends State<MyHomePage> {
         width: double.infinity,
         child: Column(
           children: [
-            Container(
-              width: double.infinity,
-              child: Text(
-                'Flutter1さん',
-                textAlign: TextAlign.center,
+            TextField(
+              autofocus: true,
+              decoration: InputDecoration(
+                hintText: 'Enter a search term',
               ),
             ),
-            DefaultTextStyle(style: TextStyle(
-              fontSize: 20,
-              color: Colors.purple,
-            ), child: Column(
-              children: [
-                Text('Flutter2さん'),
-                Text('Flutter2さん'),
-                Text('Flutter2さん'),
-              ],
-            ),
-
-            ),
-            Text('Flutter2さん')
+            TextField(focusNode: myFocusNode,),
+            ElevatedButton(
+                onPressed: (){
+                  // TODO:フォーカスするためのコード
+                  myFocusNode.requestFocus();
+                },
+                child: Text('フォーカス！')
+            )
           ],
         ),
       ),
