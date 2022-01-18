@@ -42,6 +42,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
   final myFocusNode = FocusNode();
 
+  String name = '';
+
+  final myController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -63,16 +67,34 @@ class _MyHomePageState extends State<MyHomePage> {
             TextField(
               autofocus: true,
               decoration: InputDecoration(
-                hintText: 'Enter a search term',
+                hintText: '田中太郎',
+              ),
+              onChanged: (text) {
+                name = text;
+              },
+            ),
+            TextField(
+              controller: myController,
+              focusNode: myFocusNode,
+              decoration: InputDecoration(
+                hintText: '趣味',
               ),
             ),
-            TextField(focusNode: myFocusNode,),
             ElevatedButton(
                 onPressed: (){
                   // TODO:フォーカスするためのコード
-                  myFocusNode.requestFocus();
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        // Retrieve the text that the user has entered by using the
+                        // TextEditingController.
+                        content: Text(myController.text),
+                      );
+                    },
+                  );
                 },
-                child: Text('フォーカス！')
+                child: Text('新規登録する')
             )
           ],
         ),
