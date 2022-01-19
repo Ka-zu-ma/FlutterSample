@@ -30,22 +30,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  String text = '次へ';
-
-  final myFocusNode = FocusNode();
-
-  String name = '';
-
-  final myController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -62,43 +46,31 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Container(
         width: double.infinity,
-        child: Column(
-          children: [
-            TextField(
-              autofocus: true,
-              decoration: InputDecoration(
-                hintText: '田中太郎',
-              ),
-              onChanged: (text) {
-                name = text;
+        child: ListView(
+          children: <Widget>[
+            ListTile(
+              leading: Icon(Icons.map),
+              title: Text('Map'),
+              trailing: Icon(Icons.arrow_forward_ios) ,
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => NextPage('次画面ですね')
+                  ),
+                );
               },
             ),
-            TextField(
-              controller: myController,
-              focusNode: myFocusNode,
-              decoration: InputDecoration(
-                hintText: '趣味',
-              ),
+            ListTile(
+              leading: Icon(Icons.photo_album),
+              title: Text('Album'),
             ),
-            ElevatedButton(
-                onPressed: (){
-                  // TODO:フォーカスするためのコード
-                  showDialog(
-                    context: context,
-                    builder: (context) {
-                      return AlertDialog(
-                        // Retrieve the text that the user has entered by using the
-                        // TextEditingController.
-                        content: Text(myController.text),
-                      );
-                    },
-                  );
-                },
-                child: Text('新規登録する')
-            )
+            ListTile(
+              leading: Icon(Icons.phone),
+              title: Text('Phone'),
+            ),
           ],
         ),
-      ),
+        ),
     );
   }
 }
