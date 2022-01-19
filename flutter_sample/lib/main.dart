@@ -50,14 +50,14 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Container(
         width: double.infinity,
         child: GridView.count(
-          crossAxisCount: 2,
+          crossAxisCount: 4,
           children: List.generate(100, (index) {
-            return Center(
-              child: Text(
-                'Item $index',
-                style: Theme.of(context).textTheme.headline5,
-              ),
-            );
+            return Column(
+              children: [
+                Expanded(child: Image.network('https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png?202112261453')),
+                Text('$index')
+              ],
+              );
           }),
         ),
       ),
