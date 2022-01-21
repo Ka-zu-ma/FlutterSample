@@ -49,16 +49,33 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Container(
         width: double.infinity,
-        child: GridView.count(
-          crossAxisCount: 4,
-          children: List.generate(100, (index) {
-            return Column(
-              children: [
-                Expanded(child: Image.network('https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png?202112261453')),
-                Text('$index')
-              ],
-              );
-          }),
+        child: ListView(
+          // This next line does the trick.
+          scrollDirection: Axis.vertical,
+          children: <Widget>[
+            Container(
+              width: 160.0,
+              height: 100,
+              color: Colors.red,
+            ),
+            Container(
+              width: 160.0,
+              height: 90,
+              color: Colors.blue,
+            ),
+            Container(
+              width: 160.0,
+              color: Colors.green,
+            ),
+            Container(
+              width: 160.0,
+              color: Colors.yellow,
+            ),
+            Container(
+              width: 160.0,
+              color: Colors.orange,
+            ),
+          ],
         ),
       ),
     );
