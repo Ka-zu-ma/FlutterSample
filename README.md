@@ -10,5 +10,5 @@
 - Dart 2.14.4
 
 ## 参考
-- [Flutter基礎](https://www.youtube.com/channel/UCReuARgZI-BFjioA8KBpjsw/videos)
+- [Flutter基礎](https://www.youtube.com/watch?v=-G7nW26N7_4&list=PLuLRJz1UnJzEDjRr1XkqyOzFzUi3Df4B0)
 - [Flutter基礎入門 by Flutter大学](https://zenn.dev/kboy/books/ca6a9c93fd23f3)
